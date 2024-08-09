@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام حجز الجلسات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        input[type="text"], input[type="number"], input[type="submit"], input[type="button"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"], input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            text-align: center;
+            color: red;
+            margin-top: 20px;
+        }
+
+        .session-list {
+            margin-top: 30px;
+        }
+
+        .session-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .session-item button {
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .session-item button:hover {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>نظام حجز الجلسات</h1>
+    <form id="bookingForm">
+        <label for="name">الاسم:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone_number">رقم الهاتف:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+
+        <label for="session_id">رقم الجلسة:</label>
+        <select id="session_id" name="session_id" required>
+            <!-- سيتم توليد الخيارات برمجياً -->
+        </select>
+
+        <label for="amount_paid">المبلغ المدفوع:</label>
+        <input type="number" id="amount_paid" name="amount_paid" step="0.01" required>
+
+        <label for="remaining_amount">المبلغ المتبقي:</label>
+        <input type="number" id="remaining_amount" name="remaining_amount" step="0.01" readonly>
+
+        <input type="submit" value="حجز الجلسة">
+    </form>
+
+    <div class="message" id="message"></div>
+
+    <div class="session-list" id="sessionList">
+        <h2>الجلسات المحجوزة</h2>
+        <div id="sessions"></div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
