@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const sessionSelect = document.getElementById('session_id');
 
@@ -88,12 +89,14 @@ function displaySessions() {
 }
 
 function deleteSession(sessionId) {
-    let sessions = JSON.parse(localStorage.getItem('sessions')) || {};
+    if (confirm("هل أنت متأكد من حذف هذه الجلسة؟")) {
+        let sessions = JSON.parse(localStorage.getItem('sessions')) || {};
 
-    if (sessions[sessionId]) {
-        delete sessions[sessionId];
-        localStorage.setItem('sessions', JSON.stringify(sessions));
-        displaySessions();
+        if (sessions[sessionId]) {
+            delete sessions[sessionId];
+            localStorage.setItem('sessions', JSON.stringify(sessions));
+            displaySessions();
+        }
     }
 }
 
